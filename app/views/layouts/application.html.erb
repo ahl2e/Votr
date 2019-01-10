@@ -8,6 +8,12 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag 'favicon.ico' %>
+
+    <script type="text/javascript">
+     window.logoUrl = "<%= image_url('votr_logo.png') %>"
+     window.faviconUrl = "<%= image_url('favicon.png') %>"
+   </script>
+
   </head>
 
   <body>
