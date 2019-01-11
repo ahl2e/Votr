@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import SessionForm from './session_form';
+import LoginForm from './login_form';
 import {Link} from 'react-router-dom';
 import {login, logout, signup} from '../.././actions/session_actions';
 // you can take the actions you don't need out.  They can just live here for now.
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

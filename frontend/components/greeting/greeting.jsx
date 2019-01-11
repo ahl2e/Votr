@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({currentUser,logout}) =>{
   if(currentUser){
+    debugger
     return(
-      <div>
+      <div id="greeting">
         <Link
           to="/">
-          <img src={window.logoUrl}/>
+          <img src={window.logoUrl} id="icon-button"/>
         </Link>
         <p>There's a user</p>
         <button
@@ -17,12 +18,15 @@ const Greeting = ({currentUser,logout}) =>{
     );
   }else{
     return(
-      <div>
+      <div id="greeting">
         <Link
           to="/">
-          <img src={window.logoUrl}/>
+          <img src={window.logoUrl} id="icon-button"/>
         </Link>
         <p>aint no user</p>
+        <Link to="signup">sign up</Link>
+        <br/>
+        <Link to="login">log in</Link>
       </div>
     );
   };

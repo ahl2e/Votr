@@ -50,6 +50,11 @@ render(){
           </input>
         </label>
 
+        <input
+          type="submit"
+          value="log in">
+        </input>
+
       </form>
     </div>
   )

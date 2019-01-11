@@ -62,6 +62,11 @@ render(){
           </input>
         </label>
 
+        <input
+          type="submit"
+          value="sign up">
+        </input>
+
       </form>
     </div>
   )
