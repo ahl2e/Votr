@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ /* COLOR PALLETTE */
+ /* LOGO BLUE : #3900FF
+ RED: #CC3926
+ DARK GREY: #424B54
+ DARK BLUE: #133C55
+ LIGHT GREY: #CED3DC */
+
+:root {
+  --logo-blue : #3900FF;
+  --logo-red: #CC3926;
+  --dark-grey: #424B54;
+  --dark-blue: #133C55;
+  --light-grey: #CED3DC;
+}

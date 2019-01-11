@@ -1,0 +1,49 @@
+// colors :
+//   --logo-blue,
+//   --logo-red,
+//   --dark-grey,
+//   --dark-blue,
+//   --light-grey
+
+#splash-page{
+  height: 550px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-image: image-url('splash-background2.jpg');
+  background-size: cover;
+  background-position: -130px 0px;
+    h2{
+      color: var(--logo-blue);
+      // color: black;
+
+    }
+    p{
+      color: var(--dark-grey);
+    }
+
+}
+
+#splash-right{
+  // border: 1px solid var(--dark-grey);
+  padding: 20px;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-grey);
+}
+
+#landing-text{
+  padding: 85px 30px 30px 30px;
+}
+
+#demo-login{
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 5px;
+  width: 80%;
+  height: 35px;
+  margin-top: 5px;
+  border-radius:8px;
+  border: 1px solid var(--dark-grey);
+}
