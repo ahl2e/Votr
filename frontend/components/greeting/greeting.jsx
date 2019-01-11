@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({currentUser,logout}) =>{
   if(currentUser){
-    debugger
     return(
       <div id="greeting">
         <Link
@@ -12,7 +11,7 @@ const Greeting = ({currentUser,logout}) =>{
         </Link>
         <p>There's a user</p>
         <button
-          onclick={logout}
+          onClick={logout}
           >logout</button>
       </div>
     );
