@@ -13,12 +13,16 @@ const Greeting = ({currentUser,logout}) =>{
           to="/">
           <img src={window.logoUrl} id="icon-button"/>
         </Link>
-        <p>Hello, {name}</p>
-        <button
-          onClick={logout}
-          >logout</button>
+        <div id='header-left'>
+          <p>Hello, {name}</p>
+          <button
+            onClick={logout}
+            >logout</button>
+        </div>
       </div>
     );
+
+
   }else{
     return(
       <div id='header'>

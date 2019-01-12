@@ -6,4 +6,30 @@
 #header{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  width: 80%;
+  margin-left: 10%;
+  align-self: center;
+}
+
+#header-left {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  width: 20%;
+  align-self: center;
+  button{
+    height: 30px;
+    width: 60px;
+    background-color: var(--logo-blue);
+    color: white;
+    border-radius: 6px;
+  }
+  button:hover{
+    cursor: pointer;
+  }
+  *{
+    margin: 2px;
+  }
 }
