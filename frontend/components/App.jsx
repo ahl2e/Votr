@@ -10,7 +10,7 @@ import {AuthRoute} from '../util/route_util';
 import {ProtectedRoute} from '../util/route_util';
 
 const App = () => (
-  <div>
+  <div id="app">
     <header>
       <Route path='/' component={GreetingContainer} />
     </header>

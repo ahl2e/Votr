@@ -28,3 +28,6 @@
   --dark-blue: #133C55;
   --light-grey: #CED3DC;
 }
+body{
+  margin: 0;
+}
