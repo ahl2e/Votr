@@ -23,7 +23,7 @@ class Api::VotersController < ApplicationController
 
   def index
     @voters = Voter.all
-    @voters
+    return @voters
   end
 
   def destroy

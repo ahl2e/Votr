@@ -30,8 +30,8 @@ export const receiveVoter = (voter) => {
 
 export const receiveAllVoters = (voters) => {
   return{
-    type: RECEIVE_ALL_VOTERS.
-    voters
+    type: RECEIVE_ALL_VOTERS,
+    voters:voters
   };
 };
 

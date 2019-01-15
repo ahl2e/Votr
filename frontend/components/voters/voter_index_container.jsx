@@ -4,14 +4,14 @@ import VoterIndex from './voter_index';
 
 const mapStateToProps = (state) => {
   return({
-      runs: Object.values(state.entities.voters),
+      voters: Object.values(state.entities.voters),
       user: state.session.id,
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    fetchAllVoters: dispatch(fetchAllVoters()),
+    fetchAllVoters: () => dispatch(fetchAllVoters()),
   });
 };
 
