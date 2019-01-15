@@ -14,7 +14,7 @@ class VoterIndex extends React.Component {
 
   render(){
     return(
-      <div>
+      <div id='voter-index-list'>
         {this.props.voters.map((voter) => {
           if(voter){
             return <VoterIndexItem voter={voter}/>;

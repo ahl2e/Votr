@@ -22,8 +22,8 @@ adam = Voter.create!({
   age: 30,
   list_id: nil,
   can_share_contact_info: true,
-  phone_number: 6154186621,
-  email: 'adamlong1066@gmail.com',
+  phone_number: 615-418-6621,
+  email: 'adam.fake@gmail.com',
   contact_attempts: 0,
   enthusiasm: 7,
   poll_location_name:'PS 9 New',
@@ -35,6 +35,7 @@ adam = Voter.create!({
   do_not_contact: false,
   notes: []
   })
+
 julia = Voter.create!({
   first_name: 'Julia',
   last_name: "Long",
@@ -46,8 +47,8 @@ julia = Voter.create!({
   age: 29,
   list_id: nil,
   can_share_contact_info: false,
-  phone_number: 5164570495,
-  email: 'adamlong1066@gmail.com',
+  phone_number: 516-457-495,
+  email: 'julia.fake@gmail.com',
   contact_attempts: 0,
   enthusiasm: 4,
   poll_location_name:'PS 9 New',

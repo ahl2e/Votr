@@ -5,7 +5,7 @@ import SignupFormContainer from './session/signup_form_container';
 import LoginFormContainer from './session/login_form_container';
 import SplashContainer from './splash/splash_container';
 import VoterIndexContainter from './voters/voter_index_container';
-import VoterShowContainer from './voters/voter_show_container';
+import VoterShowContainer from './voters/voter_show/voter_show_container';
 
 import {AuthRoute} from '../util/route_util';
 import {ProtectedRoute} from '../util/route_util';
