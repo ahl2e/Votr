@@ -26,7 +26,7 @@ export const updateVoter = (voter) => {
   return $.ajax({
     method: 'GET',
     url: `api/voters/${voter.id}/edit`,
-    data: voter
+    data: {voter}
   });
 };
 

@@ -8,12 +8,17 @@ class VoterShow extends React.Component{
     this.enthusiasmStandIn = props.voter.enthusiasm;
     this.raiseEnthusiasm = this.raiseEnthusiasm.bind(this);
     this.lowerEnthusiasm = this.lowerEnthusiasm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
-      this.props.fetchVoter(this.props.VoterID);
+      this.props.fetchVoter(this.props.voter.id);
   }
 
+  handleSubmit(){
+    this.addContactAttempt();
+    this.props.updateVoter(this.state).then(this.props.history.goBack());
+  }
 
   raiseEnthusiasm() {
     var ent = this.state.enthusiasm;
@@ -22,8 +27,7 @@ class VoterShow extends React.Component{
       return this.setState({
         enthusiasm: ent
       });
-    }
-  }
+    }}
 
   lowerEnthusiasm() {
     var ent = this.state.enthusiasm;
@@ -32,17 +36,20 @@ class VoterShow extends React.Component{
       return this.setState({
         enthusiasm: ent
       });
-    }
+    }}
+
+  addContactAttempt(){
+    var contact = this.state.contact_attempts;
+    contact++;
+    return this.setState({
+      contact_attempts: contact
+    });
   }
 
   update(field) {
   return e => this.setState({
     [field]: e.currentTarget.value
   });
-}
-
-handleSubmit(){
-  this.props.updateVoter(this.state);
 }
 
 renderEnthusiasm(){
@@ -52,8 +59,8 @@ renderEnthusiasm(){
     );
   } else{
     <p>{this.enthusiasmStandIn}</p>
-  }
-}
+  }}
+
 
 render(){
 
@@ -72,38 +79,42 @@ const voter = this.props.voter || {
   notes: []
 };
     return(
-      <div id="voter-show">
-        <section id="voter-left">
-          <div id="voter-name">
-            <p>{`${voter.first_name} ${voter.last_name}`}</p>
-          </div>
-          <div id="voter-address">
-            <p>{voter.address}</p>
-            <p>{`${voter.city}, ${voter.state} ${voter.zip}`}</p>
-          </div>
-          <div id='voter-enthusiasm'>
-              <button id='ent-button-up' onClick={this.raiseEnthusiasm}></button>
-              <figure id='ent-figure'>
-                {this.renderEnthusiasm()}
-                <figcaption id='ent-caption'>
-                  <p>Enthusiasm</p>
-              </figcaption>
-              </figure>
-              <button id='ent-button-down' onClick={this.lowerEnthusiasm}></button>
-          </div>
-          <div id="voter-poll-location">
-            <h3>Polling Location:</h3>
-            <p>{voter.poll_location_address}</p>
-            <p>{`${voter.poll_location_city} ${voter.poll_location_state}`}</p>
-          </div>
-      </section>
-      <section id='voter-right'>
-          <div id="voter-map">
-          </div>
-          <div id="voter-notes">
-          </div>
-      </section>
-
+      <div id='voter-show-top'>
+        <div id="voter-show">
+          <section id="voter-left">
+            <div id="voter-name">
+              <p>{`${voter.first_name} ${voter.last_name}`}</p>
+            </div>
+            <div id="voter-address">
+              <p>{voter.address}</p>
+              <p>{`${voter.city}, ${voter.state} ${voter.zip}`}</p>
+            </div>
+            <div id='voter-enthusiasm'>
+                <button id='ent-button-up' onClick={this.raiseEnthusiasm}></button>
+                <figure id='ent-figure'>
+                  {this.renderEnthusiasm()}
+                  <figcaption id='ent-caption'>
+                    <p>Enthusiasm</p>
+                </figcaption>
+                </figure>
+                <button id='ent-button-down' onClick={this.lowerEnthusiasm}></button>
+            </div>
+            <div id="voter-poll-location">
+              <h3>Polling Location:</h3>
+              <p>{voter.poll_location_address}</p>
+              <p>{`${voter.poll_location_city} ${voter.poll_location_state}`}</p>
+            </div>
+        </section>
+        <section id='voter-right'>
+            <div id="voter-map">
+            </div>
+            <div id="voter-notes">
+            </div>
+        </section>
+    </div>
+      <div id='voter-show-footer'>
+        <button onClick={this.handleSubmit}>save voter</button>
+      </div>
       </div>
     )
   }

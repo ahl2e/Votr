@@ -22,7 +22,6 @@ const Greeting = ({currentUser,logout}) =>{
       </div>
     );
 
-
   }else{
     return(
       <div id='header'>

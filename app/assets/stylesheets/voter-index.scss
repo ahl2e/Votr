@@ -1,5 +1,5 @@
 #voter-index-list{
-
+  margin-left: 5%;
 }
 
 .voter-index-item {
@@ -11,17 +11,23 @@
 
 #voter-index-item-name{
   width:140px;
-  a{
+  *{
     text-decoration: none;
+    color: black;
   }
 }
 #voter-index-item-email{
   width:200px;
+  *{
+    text-decoration: none;
+    color: black;
+  }
 }
 #voter-index-item-address{
   width:200px;
   *{
     text-decoration: none;
+    color: black;
   }
 }
 
@@ -30,5 +36,6 @@
   padding: 2px 2px 2px 6px;
     *{
       text-decoration: none;
+      color: black;
     }
 }

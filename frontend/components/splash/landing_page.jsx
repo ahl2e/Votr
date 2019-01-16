@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const LandingPage = () => {
   return (
@@ -9,6 +11,8 @@ const LandingPage = () => {
       <p>sub-heading</p>
       <h2>Update Voter Database in Real Time</h2>
       <p>No staff follow-up needed</p>
+
+    <Link to='/voters'>index</Link>
     </div>
   );
 }

@@ -89,7 +89,7 @@
   cursor: pointer
 }
 [id^="ent-button"]:focus{
-  outline: 0; 
+  outline: 0;
 }
 
 #ent-button-up{
@@ -97,4 +97,10 @@
 }
 #ent-button-down{
   background-image: asset-url('arrow-down-sign-to-navigate.png');
+}
+
+#voter-show-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
