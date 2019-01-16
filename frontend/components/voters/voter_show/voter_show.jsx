@@ -5,12 +5,33 @@ class VoterShow extends React.Component{
   constructor(props){
     super(props);
     this.state = props.voter;
-    // this.handleClick = this.handleClick.bind(this);
+    this.enthusiasmStandIn = props.voter.enthusiasm;
+    this.raiseEnthusiasm = this.raiseEnthusiasm.bind(this);
+    this.lowerEnthusiasm = this.lowerEnthusiasm.bind(this);
   }
 
   componentDidMount(){
-    if(!this.props.voter){
-      this.props.fetchVoter(this.props.match.params.VoterID);
+      this.props.fetchVoter(this.props.VoterID);
+  }
+
+
+  raiseEnthusiasm() {
+    var ent = this.state.enthusiasm;
+    ent++;
+    if (ent < 11){
+      return this.setState({
+        enthusiasm: ent
+      });
+    }
+  }
+
+  lowerEnthusiasm() {
+    var ent = this.state.enthusiasm;
+    ent--;
+      if(ent > 0){
+      return this.setState({
+        enthusiasm: ent
+      });
     }
   }
 
@@ -20,7 +41,21 @@ class VoterShow extends React.Component{
   });
 }
 
-  render(){
+handleSubmit(){
+  this.props.updateVoter(this.state);
+}
+
+renderEnthusiasm(){
+  if(this.state){
+    return(
+      <p>{this.state.enthusiasm}</p>
+    );
+  } else{
+    <p>{this.enthusiasmStandIn}</p>
+  }
+}
+
+render(){
 
 const voter = this.props.voter || {
   first_name: "",
@@ -40,22 +75,26 @@ const voter = this.props.voter || {
       <div id="voter-show">
         <section id="voter-left">
           <div id="voter-name">
-            {voter.first_name}
-            {voter.last_name}
+            <p>{`${voter.first_name} ${voter.last_name}`}</p>
           </div>
           <div id="voter-address">
-            {voter.address}
-            {voter.city}
-            {voter.state}
-            {voter.zip}
+            <p>{voter.address}</p>
+            <p>{`${voter.city}, ${voter.state} ${voter.zip}`}</p>
           </div>
           <div id='voter-enthusiasm'>
-            {voter.enthusiasm}
+              <button id='ent-button-up' onClick={this.raiseEnthusiasm}></button>
+              <figure id='ent-figure'>
+                {this.renderEnthusiasm()}
+                <figcaption id='ent-caption'>
+                  <p>Enthusiasm</p>
+              </figcaption>
+              </figure>
+              <button id='ent-button-down' onClick={this.lowerEnthusiasm}></button>
           </div>
           <div id="voter-poll-location">
-            {voter.poll_location_address}
-            {voter.poll_location_city}
-            {voter.poll_location_state}
+            <h3>Polling Location:</h3>
+            <p>{voter.poll_location_address}</p>
+            <p>{`${voter.poll_location_city} ${voter.poll_location_state}`}</p>
           </div>
       </section>
       <section id='voter-right'>
