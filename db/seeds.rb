@@ -10,6 +10,9 @@ User.delete_all
 user1 = User.create!({ username: 'Adam615', password: 'password', email: 'adamlong1066@gmail.com' })
 demo = User.create!({username: 'demo', password: 'demopassword', email: 'demo@gmail.com'})
 
+List.delete_all
+list1 = List.create!()
+
 Voter.delete_all
 adam = Voter.create!({
   first_name: 'Adam',
@@ -20,7 +23,7 @@ adam = Voter.create!({
   state: 'New York',
   zip: 11238,
   age: 30,
-  list_id: nil,
+  list_id: List.first,
   can_share_contact_info: true,
   phone_number: 615-418-6621,
   email: 'adam.fake@gmail.com',
@@ -45,7 +48,7 @@ julia = Voter.create!({
   state: 'New York',
   zip: 11238,
   age: 29,
-  list_id: nil,
+  list_id: List.first,
   can_share_contact_info: false,
   phone_number: 516-457-495,
   email: 'julia.fake@gmail.com',
@@ -60,7 +63,3 @@ julia = Voter.create!({
   do_not_contact: false,
   notes: []
   })
-
-
-  List.delete_all
-  list1 = List.create!()
