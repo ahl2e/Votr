@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=API" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:api_key]}" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag 'favicon.ico' %>
@@ -13,6 +13,7 @@
     <script type="text/javascript">
      window.logoUrl = "<%= image_url('votr_logo.png') %>"
      window.faviconUrl = "<%= image_url('favicon.png') %>"
+     window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
    </script>
 
   </head>
