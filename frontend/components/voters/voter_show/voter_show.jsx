@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import VoterMap from '../../map/voter_map';
+import VoterMapContainer from '../../map/voter_map_container';
 
 class VoterShow extends React.Component{
   constructor(props){
@@ -107,7 +107,7 @@ const voter = this.props.voter || {
             </div>
         </section>
         <section id='voter-right'>
-            <VoterMap/>
+            <VoterMapContainer voter={this.props.voter}/>
             <div id="voter-notes">
             </div>
         </section>

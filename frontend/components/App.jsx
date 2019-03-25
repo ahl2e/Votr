@@ -20,8 +20,8 @@ const App = () => (
     <Switch>
       <Route exact path="/login" component={LoginFormContainer} />
       <Route exact path="/signup" component={SignupFormContainer} />
-      <AuthRoute exact path="/voters" component={VoterIndexContainter} />
       <AuthRoute exact path="/voter/:VoterID" component={VoterShowContainer} />
+      <AuthRoute exact path="/voters" component={VoterIndexContainter} />
     </Switch>
   </div>
 );
