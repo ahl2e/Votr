@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {fetchAllVoters} from '../../actions/voter_actions';
+import {fetchAllVoters} from '../../../actions/voter_actions';
 import VoterIndex from './voter_index';
 
 const mapStateToProps = (state) => {

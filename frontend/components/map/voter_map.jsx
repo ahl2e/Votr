@@ -8,7 +8,7 @@ class VoterMap extends React.Component{
 
 
 componentDidMount(){
-  let map, infoWindow, pos, geocoder;
+  let map, infoWindow, curentPos, geocoder;
   map = new google.maps.Map(this.mapNode,{
       center: {lat: 38.9072, lng: -77.0369},
       zoom: 13
@@ -19,19 +19,17 @@ componentDidMount(){
   };
 
   map = new google.maps.Map(this.mapNode, mapOptions);
-  var marker = new google.maps.Marker({
-    position: {lat: 38.9072,lng: -77.0369},
-    map: map,
-    title: 'US Capitol'
-  });
+  // var marker = new google.maps.Marker({
+  //   position: {lat: 38.9072,lng: -77.0369},
+  //   map: map,
+  //   title: 'US Capitol'
+  // });
   infoWindow = new google.maps.InfoWindow;
   geocoder = new google.maps.Geocoder();
 
-
-
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
-             pos = {
+             currentPos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
@@ -39,13 +37,13 @@ componentDidMount(){
             infoWindow.setPosition(pos);
             infoWindow.setContent('My Location.');
             infoWindow.open(map);
-            // map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
         } else {
           handleLocationError(false, infoWindow, map.getCenter());
         }
+
         var address = this.combineVoterAddress();
         function codeAddress() {
         geocoder.geocode( { 'address': address}, function(results, status) {
@@ -62,6 +60,8 @@ componentDidMount(){
       }
       codeAddress();
       }
+
+
 
 combineVoterAddress(){
   const voter = this.props.voter;
