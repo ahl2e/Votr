@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import ModalContainer from '../../modal/modal_container';
+
 
 class CreateVoterForm extends React.Component{
   constructor(props){
@@ -103,6 +105,7 @@ handleSubmit(e){
   render(){
     return(
       <div id='voter-form'>
+        <ModalContainer/>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input
             type="text"
