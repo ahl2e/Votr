@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {createVoter} from '../../../util/voter_api_util';
+import{openModal} from '../../../actions/modal_actions';
 import createVoterForm from './create_voter_form';
 
 
@@ -17,14 +18,16 @@ const mapStateToProps = (state) => {
     phoneNumber: null,
     email: "",
     lat: null,
-    lng: null
+    lng: null,
+    poll_location_address: ""
   };
   return{newVoter};
 };
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    create: (voter) => dispatch(createVoter(voter))
+    create: (voter) => dispatch(createVoter(voter)),
+    openModal: (component) => dispatch(openModal(component)),
   };
 };
 

@@ -7,6 +7,27 @@ class CreateVoterForm extends React.Component{
     this.state = this.props.newVoter;
   }
 
+  componentDidMount(){
+    this.loadGoogleAPI();
+  }
+
+  loadGoogleAPI(){
+    const script = document.createElement("script");
+   script.src="https://apis.google.com/js/client.js?onload=load";
+
+   script.onload = () => {
+     window.gapi.load('client', () => {
+       window.gapi.client.setApiKey(window.googleAPIKey)
+
+       window.gapi.client.load('client:auth2', 'v3', () => {
+         console.log("gapi is ready");
+       });
+     });
+   };
+
+   document.body.appendChild(script);
+  }
+
   update(field) {
   return (e) =>{
     this.setState({[field]: e.target.value});
@@ -36,23 +57,47 @@ getCoords(){
       var lngResult = results[0].geometry.location.lng;
       var latitude = latResult();
       var longitude = lngResult();
-      debugger
         this.state.lat = latitude;
-        this.state.lng = longitude
-      // this.setState({[lat]:latitude});
-      // this.setState({[lng]:longitude});
-      debugger
-
+        this.state.lng = longitude;
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   }.bind(this));
+}
 
+getPollingLocation(){
+  var address = this.combineAddress();
+  function lookup(address, callback) {
+
+        var electionId = 4821;
+        var req = gapi.client.request({
+            'path' : '/civicinfo/v2/voterinfo',
+            'params' : {'electionId' : electionId, 'address' : address, 'officialOnly': false}
+        });
+       req.execute(callback);
+      }
+      function setPollingAddress(response){
+        if (response.pollingLocations && response.pollingLocations.length > 0) {
+          var pollingLocation = response.pollingLocations[0].address;
+          debugger
+        }
+      }
+
+      function load() {
+        // gapi.client.setApiKey(window.googleAPIKey);
+        lookup(address, setPollingAddress);
+      }
+
+      load()
 }
 
 handleSubmit(e){
   e.preventDefault();
   this.getCoords();
+  this.getPollingLocation();
+  if(this.state.poll_location_address == ""){
+    this.props.openModal(<div><p>Hi</p></div>);
+  }
 }
 
   render(){
