@@ -96,7 +96,7 @@ handleSubmit(e){
   this.getCoords();
   this.getPollingLocation();
   if(this.state.poll_location_address == ""){
-    this.props.openModal(<div><p>Hi</p></div>);
+    this.props.openModal(<div><p>Add modal</p></div>);
   }
 }
 
