@@ -16,6 +16,8 @@ const mapStateToProps = (state) => {
     age: null,
     phoneNumber: null,
     email: "",
+    lat: null,
+    lng: null
   };
   return{newVoter};
 };

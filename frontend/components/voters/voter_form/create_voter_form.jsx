@@ -8,7 +8,6 @@ class CreateVoterForm extends React.Component{
   }
 
   update(field) {
-    debugger
   return (e) =>{
     this.setState({[field]: e.target.value});
   };
@@ -22,19 +21,53 @@ updateState(){
   };
 }
 
+combineAddress(){
+  const voter = this.state;
+  return voter.address + " " + voter.city +", " + voter.state;
+}
+
+getCoords(){
+  var address = this.combineAddress();
+  let geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == 'OK') {
+      var latResult = results[0].geometry.location.lat;
+      var lngResult = results[0].geometry.location.lng;
+      var latitude = latResult();
+      var longitude = lngResult();
+      debugger
+        this.state.lat = latitude;
+        this.state.lng = longitude
+      // this.setState({[lat]:latitude});
+      // this.setState({[lng]:longitude});
+      debugger
+
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  }.bind(this));
+
+}
+
+handleSubmit(e){
+  e.preventDefault();
+  this.getCoords();
+}
+
   render(){
     return(
       <div id='voter-form'>
-        <form>
+        <form onSubmit={this.handleSubmit.bind(this)}>
           <input
             type="text"
-            placeholder="fname"
+            placeholder="first name"
             onChange = {this.update('firstName')}
             >
           </input>
           <input
             type="text"
-            placeholder="lname"
+            placeholder="last name"
             onChange = {this.update('lastName')}
             >
           </input>
@@ -50,8 +83,11 @@ updateState(){
             onChange = {this.update('city')}
             >
           </input>
-          <input type="text" pattern="[0-9]{5}" title="Five digit zip code" />
-          </input>
+          <input type="text"
+            pattern="[0-9]{5}"
+            title="Five digit zip code"
+            placeholder='Zip Code'
+            onChange = {this.update('zip')} />
           <select onChange={this.updateState()}>
           	<option value="AL">Alabama</option>
           	<option value="AK">Alaska</option>
@@ -111,6 +147,10 @@ updateState(){
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           onChange = {this.update('phoneNumber')}
           >
+        </input>
+        <input
+          type='submit'
+          value='submit'>
         </input>
 
         </form>

@@ -13,6 +13,8 @@ const LandingPage = () => {
       <p>No staff follow-up needed</p>
 
     <Link to='/voters'>index</Link>
+    <br/>
+    <Link to='/voterform'>voter form</Link>
     </div>
   );
 }
