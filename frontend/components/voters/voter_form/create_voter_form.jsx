@@ -15,6 +15,16 @@ class CreateVoterForm extends React.Component{
     this.loadGoogleAPI();
   }
 
+  componentDidUpdate(){
+    if(this.props.payload){
+      // this.setState({poll_location_address: this.props.payload.pollingLocationAddress});
+      this.state.poll_location_address = this.props.payload.pollingLocationAddress;
+      // this.setState({poll_location_state: this.props.payload.pollingLocationState});
+      this.state.poll_location_state = this.props.payload.pollingLocationState;
+      this.props.clearPayload();
+    }
+  }
+
   loadGoogleAPI(){
     const script = document.createElement("script");
    script.src="https://apis.google.com/js/client.js?onload=load";

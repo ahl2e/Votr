@@ -7,9 +7,8 @@ const pollingPlace = {
     pollingLocationAddress: "",
     pollingLocationState: "",
   };
-  const payload = state.ui.modal.payload;
 
-  return {pollingPlace, payload};
+  return {pollingPlace};
 };
 
 const mapDispatchToProps = (dispatch) => {

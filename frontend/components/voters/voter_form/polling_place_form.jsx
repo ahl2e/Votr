@@ -14,11 +14,9 @@ class PollingPlaceForm extends React.Component{
 }
 
   handleSubmit(e){
-    debugger
     e.preventDefault();
     this.props.carryPayload(this.state);
     this.props.closeModal();
-    console.log('submitted');
   }
 
 
