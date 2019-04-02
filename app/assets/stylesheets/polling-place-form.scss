@@ -1,0 +1,14 @@
+#polling-place-form-container{
+  background-color: white;
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#poll-location-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 10px;
+}

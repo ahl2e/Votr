@@ -18,7 +18,7 @@ export const createVoter = (voter) => {
   return $.ajax({
     method: 'POST',
     url: 'api/voters',
-    data: voter
+    data: {voter}
   });
 };
 

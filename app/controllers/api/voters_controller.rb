@@ -1,6 +1,7 @@
 class Api::VotersController < ApplicationController
   def create
     @voter = Voter.new(voter_params)
+    debugger
       if @voter.save
         render json:@voter
       else

@@ -22,13 +22,26 @@ class PollingPlaceForm extends React.Component{
 
   render(){
     return(
-      <div>
+      <div id='polling-place-form-container'>
         <div id='poll-location-form'>
-          <form onSubmit ={this.handleSubmit.bind(this)}>
+          <h3>Please Add Poll Location Information</h3>
+          <form onSubmit ={this.handleSubmit.bind(this)} id='poll-location-form'>
+            <input
+              type='text'
+              onChange = {this.update('pollingLocationName')}
+              placeholder = 'Polling Location Name'
+              >
+            </input>
             <input
               type='text'
               onChange = {this.update('pollingLocationAddress')}
               placeholder = 'Polling Location Address'
+              >
+            </input>
+            <input
+              type='text'
+              onChange = {this.update('pollingLocationCity')}
+              placeholder = 'Polling Location City'
               >
             </input>
             <input

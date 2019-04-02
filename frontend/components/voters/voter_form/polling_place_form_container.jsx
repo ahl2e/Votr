@@ -4,7 +4,9 @@ import PollingPlaceForm from './polling_place_form';
 
 const mapStateToProps = (state) => {
 const pollingPlace = {
+    pollingLocationName: "",
     pollingLocationAddress: "",
+    pollingLocationCity: "",
     pollingLocationState: "",
   };
 

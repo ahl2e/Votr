@@ -124,6 +124,9 @@ handleSubmit(e){
   if(this.state.poll_location_address == ""){
     this.props.openModal(this.pollingPlaceForm);
   }
+  if (this.state.poll_location_address != ""){
+    this.props.createVoter(this.state);
+  }
 }
 
   render(){

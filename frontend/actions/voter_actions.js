@@ -20,6 +20,10 @@ export const deleteVoter = (voter) => dispatch => {
   return VoterApiUtil.deleteVoter(voter).then(voter => dispatch(removeVoter(voter)));
 };
 
+export const createVoter = (voter) => dispatch => {
+  return VoterApiUtil.createVoter(voter).then(voter => dispatch(receiveVoter(voter)));
+};
+
 
 export const receiveVoter = (voter) => {
   return {
