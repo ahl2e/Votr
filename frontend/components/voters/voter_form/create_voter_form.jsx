@@ -1,12 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ModalContainer from '../../modal/modal_container';
+import PollingPlaceFormContainer from './polling_place_form_container';
 
 
 class CreateVoterForm extends React.Component{
   constructor(props){
     super(props);
     this.state = this.props.newVoter;
+    this.pollingPlaceForm = <PollingPlaceFormContainer />;
   }
 
   componentDidMount(){
@@ -98,7 +100,7 @@ handleSubmit(e){
   this.getCoords();
   this.getPollingLocation();
   if(this.state.poll_location_address == ""){
-    this.props.openModal(<div><p>Add modal</p></div>);
+    this.props.openModal(this.pollingPlaceForm);
   }
 }
 
