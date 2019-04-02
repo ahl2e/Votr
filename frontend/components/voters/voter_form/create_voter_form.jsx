@@ -105,8 +105,20 @@ getPollingLocation(){
       load()
 }
 
+normalizePhoneNumber(phoneNumberString){
+  var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+  var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+  if (match) {
+    var result = match[1] + '-' + match[2] + '-' + match[3];
+    this.state.phoneNumber = result;
+  }
+  return null;
+}
+
 handleSubmit(e){
+
   e.preventDefault();
+  this.normalizePhoneNumber(this.state.phoneNumber);
   this.getCoords();
   this.getPollingLocation();
   if(this.state.poll_location_address == ""){
@@ -116,98 +128,108 @@ handleSubmit(e){
 
   render(){
     return(
-      <div id='voter-form'>
+      <div id='voter-form-container'>
         <ModalContainer/>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input
-            type="text"
-            placeholder="first name"
-            onChange = {this.update('firstName')}
-            >
-          </input>
-          <input
-            type="text"
-            placeholder="last name"
-            onChange = {this.update('lastName')}
-            >
-          </input>
-          <input
-            type="text"
-            placeholder="address"
-            onChange = {this.update('address')}
-            >
-          </input>
-          <input
-            type="text"
-            placeholder="city"
-            onChange = {this.update('city')}
-            >
-          </input>
-          <input type="text"
-            pattern="[0-9]{5}"
-            title="Five digit zip code"
-            placeholder='Zip Code'
-            onChange = {this.update('zip')} />
-          <select onChange={this.updateState()}>
-          	<option value="AL">Alabama</option>
-          	<option value="AK">Alaska</option>
-          	<option value="AZ">Arizona</option>
-          	<option value="AR">Arkansas</option>
-          	<option value="CA">California</option>
-          	<option value="CO">Colorado</option>
-          	<option value="CT">Connecticut</option>
-          	<option value="DE">Delaware</option>
-          	<option value="DC">District Of Columbia</option>
-          	<option value="FL">Florida</option>
-          	<option value="GA">Georgia</option>
-          	<option value="HI">Hawaii</option>
-          	<option value="ID">Idaho</option>
-          	<option value="IL">Illinois</option>
-          	<option value="IN">Indiana</option>
-          	<option value="IA">Iowa</option>
-          	<option value="KS">Kansas</option>
-          	<option value="KY">Kentucky</option>
-          	<option value="LA">Louisiana</option>
-          	<option value="ME">Maine</option>
-          	<option value="MD">Maryland</option>
-          	<option value="MA">Massachusetts</option>
-          	<option value="MI">Michigan</option>
-          	<option value="MN">Minnesota</option>
-          	<option value="MS">Mississippi</option>
-          	<option value="MO">Missouri</option>
-          	<option value="MT">Montana</option>
-          	<option value="NE">Nebraska</option>
-          	<option value="NV">Nevada</option>
-          	<option value="NH">New Hampshire</option>
-          	<option value="NJ">New Jersey</option>
-          	<option value="NM">New Mexico</option>
-          	<option value="NY">New York</option>
-          	<option value="NC">North Carolina</option>
-          	<option value="ND">North Dakota</option>
-          	<option value="OH">Ohio</option>
-          	<option value="OK">Oklahoma</option>
-          	<option value="OR">Oregon</option>
-          	<option value="PA">Pennsylvania</option>
-          	<option value="RI">Rhode Island</option>
-          	<option value="SC">South Carolina</option>
-          	<option value="SD">South Dakota</option>
-          	<option value="TN">Tennessee</option>
-          	<option value="TX">Texas</option>
-          	<option value="UT">Utah</option>
-          	<option value="VT">Vermont</option>
-          	<option value="VA">Virginia</option>
-          	<option value="WA">Washington</option>
-          	<option value="WV">West Virginia</option>
-          	<option value="WI">Wisconsin</option>
-          	<option value="WY">Wyoming</option>
-        </select>
-        <input
-          type="tel"
-          placeholder="phone number"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          onChange = {this.update('phoneNumber')}
-          >
-        </input>
+        <form onSubmit={this.handleSubmit.bind(this)} id='voter-form'>
+          <div className='voter-form-side'>
+            <input
+              type="text"
+              placeholder="first name"
+              onChange = {this.update('firstName')}
+              className ='voter-form-input'
+              >
+            </input>
+            <input
+              type="text"
+              placeholder="last name"
+              onChange = {this.update('lastName')}
+              className ='voter-form-input'
+              >
+            </input>
+            <input
+              type="tel"
+              placeholder="phone number"
+              onChange = {this.update('phoneNumber')}
+              className ='voter-form-input'
+              >
+            </input>
+          </div>
+
+          <div className='voter-form-side'>
+            <input
+              type="text"
+              placeholder="address"
+              onChange = {this.update('address')}
+              className ='voter-form-input'
+              >
+            </input>
+            <input
+              type="text"
+              placeholder="city"
+              onChange = {this.update('city')}
+              className ='voter-form-input'
+              >
+            </input>
+            <select onChange={this.updateState()}>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District Of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+            <input type="text"
+              pattern="[0-9]{5}"
+              title="Five digit zip code"
+              placeholder='Zip Code'
+              onChange = {this.update('zip')}
+              className ='voter-form-input'/>
+        </div>
         <input
           type='submit'
           value='submit'>
