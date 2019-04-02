@@ -17,9 +17,9 @@ class CreateVoterForm extends React.Component{
 
   componentDidUpdate(){
     if(this.props.payload){
-      // this.setState({poll_location_address: this.props.payload.pollingLocationAddress});
+      this.state.poll_location_name = this.props.payload.pollingLocationName;
       this.state.poll_location_address = this.props.payload.pollingLocationAddress;
-      // this.setState({poll_location_state: this.props.payload.pollingLocationState});
+      this.state.poll_location_city = this.props.payload.pollingLocationCity;
       this.state.poll_location_state = this.props.payload.pollingLocationState;
       this.props.clearPayload();
     }
@@ -138,14 +138,14 @@ handleSubmit(e){
             <input
               type="text"
               placeholder="first name"
-              onChange = {this.update('firstName')}
+              onChange = {this.update('first_name')}
               className ='voter-form-input'
               >
             </input>
             <input
               type="text"
               placeholder="last name"
-              onChange = {this.update('lastName')}
+              onChange = {this.update('last_name')}
               className ='voter-form-input'
               >
             </input>

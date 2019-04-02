@@ -1,10 +1,10 @@
 class Api::VotersController < ApplicationController
   def create
     @voter = Voter.new(voter_params)
-    debugger
       if @voter.save
         render json:@voter
       else
+        debugger
         render json: @voter.errors.full_messages, status: 422
       end
   end
