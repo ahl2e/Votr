@@ -150,6 +150,13 @@ handleSubmit(e){
               >
             </input>
             <input
+              type="text"
+              placeholder="email"
+              onChange = {this.update('email')}
+              className ='voter-form-input'
+              >
+            </input>
+            <input
               type="tel"
               placeholder="phone number"
               onChange = {this.update('phoneNumber')}
