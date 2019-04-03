@@ -19,11 +19,6 @@ componentDidMount(){
   };
 
   map = new google.maps.Map(this.mapNode, mapOptions);
-  // var marker = new google.maps.Marker({
-  //   position: {lat: 38.9072,lng: -77.0369},
-  //   map: map,
-  //   title: 'US Capitol'
-  // });
   infoWindow = new google.maps.InfoWindow;
   geocoder = new google.maps.Geocoder();
 
@@ -45,20 +40,13 @@ componentDidMount(){
         }
 
         var address = this.combineVoterAddress();
-        function codeAddress() {
-        geocoder.geocode( { 'address': address}, function(results, status) {
-          if (status == 'OK') {
-            map.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-                map: map,
-                position: results[0].geometry.location
-            });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
+        var coords = {lat: this.props.voter.lat, lng: this.props.voter.lng};
+        var marker = new google.maps.Marker({
+            map: map,
+            position: coords
         });
-      }
-      codeAddress();
+        map.setCenter(coords);
+
       }
 
 
