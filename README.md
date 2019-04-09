@@ -3,7 +3,7 @@
 
 ![Votr logo](https://github.com/ahl2e/Votr/raw/master/app/assets/images/votr_logo.png)
 
-Votr is a voter canvassing app designed to help campaigns streamline the use of volunteers to go door to door.  Instead of handing out paper turfs to canvassers and relying on more volunteers to inut the data collected, Votr combines dispatching and data collection into one simple app.
+Votr is a voter canvassing app designed to help campaigns streamline the use of volunteers to go door to door.  Instead of handing out paper turfs to canvassers and relying on more volunteers to input the data collected, Votr frees up volunteer hours by combining dispatching and data collection into one simple app.  Real-time updates and requests allow for quicker responses and a more agile campaign.
 
 ## Technologies
 
