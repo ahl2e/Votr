@@ -1,7 +1,7 @@
 import {merge} from 'lodash';
 import {RECEIVE_TURF, RECEIVE_ALL_TURFS, REMOVE_TURF} from '../actions/turf_actions';
 
-const VotersReducer = (oldState = {}, action) => {
+const TurfsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_TURF:
