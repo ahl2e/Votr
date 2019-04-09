@@ -36,13 +36,3 @@ export const deleteVoter = (voter) => {
     url: `api/voter/${voter.id}`
   });
 };
-
-// export const getPollingLocation = (voter) => {
-//   return $.ajax({
-//     method: 'GET',
-//     url: 'https://www.googleapis.com/civicinfo/v2/voterinfo',
-//     data: {
-//
-//     }
-//   });
-// };
