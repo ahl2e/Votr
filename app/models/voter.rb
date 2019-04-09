@@ -27,14 +27,16 @@
 #  notes                  :text             default([]), is an Array
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  lat                    :float
+#  lng                    :float
 #
 
 class Voter < ApplicationRecord
   validates :first_name, :last_name, :address, :city, :state, :zip, :poll_location_name, :poll_location_address, :poll_location_city, :poll_location_state, presence: true
 
-  belongs_to :list, optional: true,
+  belongs_to :turf, optional: true,
   primary_key: :id,
-  foreign_key: :list_id,
-  class_name: :List
+  foreign_key: :turf_id,
+  class_name: :Turf
 
 end

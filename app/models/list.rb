@@ -5,7 +5,7 @@
 #  id :bigint(8)        not null, primary key
 #
 
-class List <ApplicationRecord
+class List < ApplicationRecord
 
   has_many :voters,
   primary_key: :id,

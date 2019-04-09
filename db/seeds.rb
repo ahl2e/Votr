@@ -36,7 +36,9 @@ adam = Voter.create!({
   sign_requested: false,
   sign_delivered: false,
   do_not_contact: false,
-  notes: []
+  notes: [],
+  lat: 40.6780161,
+  lng: -73.96488640000001
   })
 
 julia = Voter.create!({
@@ -61,5 +63,7 @@ julia = Voter.create!({
   sign_requested: false,
   sign_delivered: false,
   do_not_contact: false,
-  notes: []
+  notes: [],
+  lat: 40.6780161,
+  lng: -73.96488640000001
   })
